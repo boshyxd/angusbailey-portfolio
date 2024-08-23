@@ -53,8 +53,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const basePath = process.env.NODE_ENV === 'production' ? '/angusbailey-portfolio' : '';
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <base href={`${basePath}/`} />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
