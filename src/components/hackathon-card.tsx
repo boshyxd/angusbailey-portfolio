@@ -35,14 +35,14 @@ export function HackathonCard({
       </Avatar>
       <div className="flex flex-col items-center gap-2">
         {dates && (
-          <time className="text-xs font-medium text-muted-foreground">{dates}</time>
+          <time className="text-sm font-medium text-muted-foreground font-inter">{dates}</time>
         )}
-        <h2 className="text-lg font-semibold leading-tight">{title}</h2>
+        <h2 className="text-xl font-poppins font-semibold leading-tight">{title}</h2>
         {location && (
-          <p className="text-sm text-muted-foreground">{location}</p>
+          <p className="text-sm text-muted-foreground font-inter">{location}</p>
         )}
         {description && (
-          <p className="prose dark:prose-invert text-sm text-muted-foreground mt-1">
+          <p className="prose dark:prose-invert text-base text-muted-foreground mt-1 font-inter">
             {description}
           </p>
         )}

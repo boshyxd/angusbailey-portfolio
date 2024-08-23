@@ -80,7 +80,7 @@ export function ProjectCard({
         )}
       </Link>
       <CardHeader className="px-4 py-3 space-y-2">
-        <CardTitle className="text-lg font-semibold">
+        <CardTitle className="text-lg font-poppins font-semibold">
           {githubUrl ? (
             <Link href={githubUrl} className="hover:underline" target="_blank">
               {title}
@@ -89,11 +89,11 @@ export function ProjectCard({
             title
           )}
         </CardTitle>
-        <time className="font-sans text-xs text-muted-foreground">{dates}</time>
-        <div className="hidden font-sans text-xs underline print:visible">
+        <time className="font-inter text-sm text-muted-foreground">{dates}</time>
+        <div className="hidden font-inter text-sm underline print:visible">
           {link?.replace("https://", "").replace("www.", "").replace("/", "")}
         </div>
-        <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert leading-snug">
+        <Markdown className="prose max-w-full text-pretty font-inter text-sm text-muted-foreground dark:prose-invert leading-relaxed">
           {description}
         </Markdown>
       </CardHeader>

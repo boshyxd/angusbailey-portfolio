@@ -20,7 +20,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["Bebas Neue", ...fontFamily.sans],
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+        bebas: ["Bebas Neue", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -81,9 +82,12 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      textShadow: {
+        'bold': '0 0 1px currentColor, 0 0 1px currentColor, 0 0 1px currentColor',
+      },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require('tailwindcss-textshadow')],
 } satisfies Config;
 
 export default config;

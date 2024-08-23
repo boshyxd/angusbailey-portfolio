@@ -4,12 +4,23 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Inter, Roboto_Slab, Poppins } from "next/font/google";
 import "./globals.css";
-// @ts-ignore
-const fontSans = FontSans({
+
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
+});
+
+const robotoSlab = Roboto_Slab({
+  subsets: ["latin"],
+  variable: "--font-roboto-slab",
+});
+
+const poppins = Poppins({
+  weight: ['400', '600', '700'],
+  subsets: ["latin"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -61,8 +72,10 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
-          fontSans.variable
+          "min-h-screen bg-background antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
+          inter.variable,
+          robotoSlab.variable,
+          poppins.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">

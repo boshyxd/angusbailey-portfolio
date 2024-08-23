@@ -46,7 +46,7 @@ export const ResumeCard = ({
         <div className="flex-grow ml-4 items-center flex-col">
           <CardHeader>
             <div className="flex items-center justify-between gap-x-2 text-base">
-              <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
+              <h3 className="inline-flex items-center justify-center font-poppins font-semibold leading-none text-sm sm:text-base">
                 {title}
                 {badges && (
                   <span className="inline-flex gap-x-1">
@@ -65,14 +65,14 @@ export const ResumeCard = ({
                   className="size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100"
                 />
               </h3>
-              <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
+              <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right font-inter">
                 {period}
               </div>
             </div>
-            {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
+            {subtitle && <div className="font-inter text-sm">{subtitle}</div>}
           </CardHeader>
           {achievements && achievements.length > 0 && (
-            <ul className="list-disc list-inside text-xs text-muted-foreground mt-2 pl-4">
+            <ul className="list-disc list-inside text-sm text-muted-foreground mt-2 pl-4 font-inter">
               {achievements.map((achievement, index) => (
                 <li key={index}>{achievement}</li>
               ))}

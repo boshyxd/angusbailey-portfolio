@@ -14,13 +14,13 @@ export default function Hero() {
         <div className="flex items-center justify-center md:justify-start">
           <BlurFadeText
             delay={BLUR_FADE_DELAY * 2}
-            className="text-3xl font-bold tracking-tight md:text-5xl"
+            className="font-bebas text-3xl font-bold tracking-tight md:text-5xl text-shadow-bold"
             text={`Hi! I'm ${DATA.name.split(" ")[0]}`}
           />
           <span className="wave ml-2 mb-4 text-3xl md:text-5xl">👋</span>
         </div>
         <BlurFadeText
-          className="mt-4 text-base text-foreground md:text-xl md:max-w-2xl"
+          className="font-roboto mt-4 text-base text-foreground md:text-xl md:max-w-2xl"
           delay={BLUR_FADE_DELAY * 3}
           text={DATA.description}
         />
