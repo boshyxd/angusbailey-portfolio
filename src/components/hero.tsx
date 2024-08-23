@@ -9,24 +9,24 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Hero() {
   return (
-    <section id="hero" className="flex flex-col md:flex-row items-center justify-between gap-8">
-      <div className="flex flex-col text-left">
-        <div className="flex items-center">
+    <section id="hero" className="flex flex-col items-center justify-between gap-8 px-4 py-8 md:flex-row md:items-start md:px-0 md:py-16">
+      <div className="flex flex-col text-center md:text-left">
+        <div className="flex items-center justify-center md:justify-start">
           <BlurFadeText
             delay={BLUR_FADE_DELAY * 2}
-            className="text-5xl md:text-5xl font-bold tracking-tight"
-            text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
+            className="text-3xl font-bold tracking-tight md:text-5xl"
+            text={`Hi! I'm ${DATA.name.split(" ")[0]}`}
           />
-          <span className="wave text-5xl ml-2 mb-4">👋</span>
+          <span className="wave ml-2 mb-4 text-3xl md:text-5xl">👋</span>
         </div>
         <BlurFadeText
-          className="text-xl text-foreground max-w-2xl"
+          className="mt-4 text-base text-foreground md:text-xl md:max-w-2xl"
           delay={BLUR_FADE_DELAY * 3}
           text={DATA.description}
         />
       </div>
       <BlurFade delay={BLUR_FADE_DELAY}>
-        <Avatar className="size-32 md:size-48 border">
+        <Avatar className="size-32 border md:size-48">
           <AvatarImage alt={DATA.name} src={getImagePath(DATA.avatarUrl)} />
           <AvatarFallback>{DATA.initials}</AvatarFallback>
         </Avatar>

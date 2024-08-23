@@ -14,11 +14,11 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
   children: React.ReactNode;
 }
 
-const DEFAULT_MAGNIFICATION = 1.5; // Reduced from 2
-const DEFAULT_DISTANCE = 50; // Reduced from 100
+const DEFAULT_MAGNIFICATION = 1.3; // Reduced from 1.5
+const DEFAULT_DISTANCE = 40; // Reduced from 50
 
 const dockVariants = cva(
-  "fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 shadow-lg"
+  "fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-between shadow-lg"
 );
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
@@ -105,18 +105,18 @@ const DockIcon = ({
       onClick={onClick} // This is now safe, as onClick is optional
       style={{ scale }}
       className={cn(
-        "flex flex-col items-center justify-center transition-colors hover:text-blue-500 px-2",
+        "flex flex-col items-center justify-center transition-colors hover:text-blue-500 px-1 sm:px-2",
         className
       )}
-      whileHover={{ y: -3 }}
+      whileHover={{ y: -2 }}
       whileTap={{ scale: 0.95 }}
     >
-      <div className="h-8 flex items-end">
-        <Icon className="w-6 h-6" />
+      <div className="h-6 flex items-end">
+        <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
       </div>
       <motion.span
-        className="text-[10px] opacity-0 transition-opacity text-white/90 mt-1"
-        style={{ opacity: useTransform(scale, [1, 1.5], [0, 1]) }}
+        className="text-[8px] sm:text-[10px] opacity-0 transition-opacity text-white/90 mt-0.5"
+        style={{ opacity: useTransform(scale, [1, 1.3], [0, 1]) }}
       >
         {label}
       </motion.span>
