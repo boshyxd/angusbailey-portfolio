@@ -54,7 +54,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const basePath = process.env.NODE_ENV === 'production' ? '/angusbailey-portfolio' : '';
-  // @ts-ignore
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
