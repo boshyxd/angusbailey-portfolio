@@ -1,6 +1,7 @@
 {
-  "name": "porfolio",
+  "name": "angusbailey-portfolio",
   "version": "0.1.0",
+  "homepage": "https://boshyxd.github.io/angusbailey-portfolio",
   "private": true,
   "scripts": {
     "dev": "next dev",
