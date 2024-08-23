@@ -48,8 +48,8 @@ export async function getPost(slug: string) {
   };
 }
 
-async function getAllPosts(dir: string) {
-  let mdxFiles = getMDXFiles(dir);
+export async function getAllPosts() {
+  let mdxFiles = getMDXFiles(path.join(process.cwd(), "content"));
   return Promise.all(
     mdxFiles.map(async (file) => {
       let slug = path.basename(file, path.extname(file));
@@ -64,5 +64,5 @@ async function getAllPosts(dir: string) {
 }
 
 export async function getBlogPosts() {
-  return getAllPosts(path.join(process.cwd(), "content"));
+  return getAllPosts();
 }

@@ -165,7 +165,7 @@ function Contact() {
           <Link href={`mailto:AngusB@techie.com`} className="text-primary hover:underline">
             send me an email
           </Link>{" "}
-          and I'll respond as soon as I can. Please note that I will ignore all soliciting.
+          and I&apos;ll respond as soon as I can. Please note that I will ignore all soliciting.
         </p>
         <div className="flex justify-center space-x-4">
           {Object.entries(DATA.contact.social).map(([name, social]) => (

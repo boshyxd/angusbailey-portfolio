@@ -44,8 +44,8 @@ const CustomLink: React.FC<CustomLinkProps> = ({ href, ...props }) => {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
 
-const RoundedImage: React.FC<ImageProps> = (props) => (
-  <Image className="rounded-lg" {...props} />
+const RoundedImage: React.FC<ImageProps> = ({ alt, ...props }) => (
+  <Image alt={alt || ""} className="rounded-lg" {...props} />
 );
 
 const slugify = (str: string): string =>

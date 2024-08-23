@@ -39,12 +39,31 @@ const BlurFadeText = ({
     );
   };
 
+  const memoizedContent = useMemo((): React.ReactNode[] => {
+    if (typeof text === "string") {
+      return text.split("").map((char, index) => (
+        <motion.span
+          key={`${char}-${index}`}
+          initial={{ opacity: 0, filter: "blur(10px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{
+            duration: 0.5,
+            delay: delay + index * 0.04,
+          }}
+        >
+          {char}
+        </motion.span>
+      ));
+    } else {
+      return [text];
+    }
+  }, [text, delay]);
+
   if (animateByCharacter) {
-    const characters = useMemo(() => Array.from(text), [text]);
     return (
       <div className="flex">
         <AnimatePresence>
-          {characters.map((char, i) => (
+          {memoizedContent.map((char, i) => (
             <motion.span
               key={i}
               initial="hidden"
@@ -57,9 +76,9 @@ const BlurFadeText = ({
                 ease: "easeOut",
               }}
               className={cn("inline-block", className)}
-              style={{ width: char.trim() === "" ? "0.2em" : "auto" }}
+              style={{ width: typeof char === 'string' && char.trim() === "" ? "0.2em" : "auto" }}
             >
-              {renderContent(char)}
+              {typeof char === 'string' ? renderContent(char) : char}
             </motion.span>
           ))}
         </AnimatePresence>
