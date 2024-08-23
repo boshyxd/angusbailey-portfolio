@@ -10,6 +10,7 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import NavBar from "@/components/navbar";
 import dynamic from 'next/dynamic';
+import { ThemeProvider } from "@/components/theme-provider";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -17,7 +18,7 @@ const DynamicHero = dynamic(() => import('@/components/hero'), { ssr: false });
 
 export default function Page() {
   return (
-    <>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
       <NavBar />
       <main className="flex flex-col min-h-[100dvh] space-y-12 max-w-4xl mx-auto px-4 py-8">
         <DynamicHero />
@@ -29,7 +30,7 @@ export default function Page() {
         <Hackathons />
         <Contact />
       </main>
-    </>
+    </ThemeProvider>
   );
 }
 
@@ -134,23 +135,18 @@ function Hackathons() {
       <SectionHeader title="Hackathons" delay={BLUR_FADE_DELAY * 14} />
       <BlurFade delay={BLUR_FADE_DELAY * 15}>
         <p className="text-muted-foreground mb-6">
-          During my time in university, I attended {DATA.hackathons.length}+ hackathons. These events brought together people from around the country to build incredible things in just 2-3 days, showcasing the endless possibilities when passionate individuals collaborate.
+          I'm excited to announce that I'll be attending my first hackathon this year! Stay tuned for updates on my experiences and projects from upcoming events.
         </p>
       </BlurFade>
-      <ul className="space-y-6">
-        {DATA.hackathons.map((hackathon, id) => (
-          <BlurFade key={hackathon.title + hackathon.dates} delay={BLUR_FADE_DELAY * 16 + id * 0.05}>
-            <HackathonCard
-              title={hackathon.title}
-              description={hackathon.description}
-              location={hackathon.location}
-              dates={hackathon.dates}
-              image={hackathon.image}
-              links={hackathon.links}
-            />
-          </BlurFade>
-        ))}
-      </ul>
+      <BlurFade delay={BLUR_FADE_DELAY * 16}>
+        <HackathonCard
+          title="Upcoming Hackathon"
+          description="I'm looking forward to participating in my first hackathon soon. This space will be updated with details and projects from the event."
+          location="TBA"
+          dates="Coming Soon"
+          image="/placeholder-hackathon.png"
+        />
+      </BlurFade>
     </section>
   );
 }

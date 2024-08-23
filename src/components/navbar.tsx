@@ -16,12 +16,13 @@ type NavItem = {
 };
 
 const NavBar = () => {
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    setTheme('dark'); // Set the initial theme to dark
+  }, [setTheme]);
 
   const navItems: NavItem[] = [
     { name: "About", href: "#about", icon: FaUser },
