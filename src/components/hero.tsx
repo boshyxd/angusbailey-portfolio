@@ -19,7 +19,7 @@ export default function Hero() {
           <span className="wave text-5xl ml-2 mb-4">👋</span>
         </div>
         <BlurFadeText
-          className="text-xl text-white max-w-2xl"
+          className="text-xl text-foreground max-w-2xl"
           delay={BLUR_FADE_DELAY * 3}
           text={DATA.description}
         />
