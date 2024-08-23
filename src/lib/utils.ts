@@ -42,7 +42,10 @@ export function getImagePath(path: string): string {
     return path;
   }
   
-  // For local images, prepend the base path
+  // For local images, ensure the path starts with a slash
+  const adjustedPath = path.startsWith('/') ? path : `/${path}`;
+  
+  // Prepend the base path for production
   const basePath = process.env.NODE_ENV === 'production' ? '/angusbailey-portfolio' : '';
-  return `${basePath}${path.startsWith('/') ? '' : '/'}${path}`;
+  return `${basePath}${adjustedPath}`;
 }
