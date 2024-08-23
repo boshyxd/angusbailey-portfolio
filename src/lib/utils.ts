@@ -36,7 +36,13 @@ export function formatDate(date: string) {
   }
 }
 
-export function getImagePath(src: string): string {
+export function getImagePath(path: string): string {
+  // Check if the path is already a full URL
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    return path;
+  }
+  
+  // For local images, prepend the base path
   const basePath = process.env.NODE_ENV === 'production' ? '/angusbailey-portfolio' : '';
-  return `${basePath}${src}`;
+  return `${basePath}${path.startsWith('/') ? '' : '/'}${path}`;
 }
