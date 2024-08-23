@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { getImagePath } from "@/lib/utils";
 
 interface Props {
   title: string;
@@ -26,8 +27,11 @@ export function HackathonCard({
   return (
     <div className="flex flex-col items-center text-center p-4 border rounded-lg shadow-sm">
       <Avatar className="border-2 border-background size-16 shadow-sm mb-4">
-        <AvatarImage src={image} alt={title} className="object-cover" />
-        <AvatarFallback>{title[0]}</AvatarFallback>
+        {image ? (
+          <AvatarImage src={getImagePath(image)} alt={title} className="object-cover" />
+        ) : (
+          <AvatarFallback>{title[0]}</AvatarFallback>
+        )}
       </Avatar>
       <div className="flex flex-col items-center gap-2">
         {dates && (

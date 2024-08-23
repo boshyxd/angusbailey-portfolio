@@ -135,13 +135,13 @@ function Hackathons() {
       <SectionHeader title="Hackathons" delay={BLUR_FADE_DELAY * 14} />
       <BlurFade delay={BLUR_FADE_DELAY * 15}>
         <p className="text-muted-foreground mb-6">
-          I'm excited to announce that I'll be attending my first hackathon this year! Stay tuned for updates on my experiences and projects from upcoming events.
+          I&apos;m excited to announce that I&apos;ll be attending my first hackathon this year! Stay tuned for updates on my experiences and projects from upcoming events.
         </p>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 16}>
         <HackathonCard
           title="Upcoming Hackathon"
-          description="I'm looking forward to participating in my first hackathon soon. This space will be updated with details and projects from the event."
+          description="I&apos;m looking forward to participating in my first hackathon soon. This space will be updated with details and projects from the event."
           location="TBA"
           dates="Coming Soon"
           image="/placeholder-hackathon.png"
@@ -161,7 +161,7 @@ function Contact() {
           <Link href={`mailto:AngusB@techie.com`} className="text-primary hover:underline">
             send me an email
           </Link>{" "}
-          and I&apos;ll respond as soon as I can. Please note that I will ignore all soliciting.
+          and I&apos;ll respond as soon as I can. Please note that I&apos;ll ignore all soliciting.
         </p>
         <div className="flex justify-center space-x-4">
           {Object.entries(DATA.contact.social).map(([name, social]) => (

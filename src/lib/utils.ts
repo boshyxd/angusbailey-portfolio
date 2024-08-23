@@ -35,3 +35,8 @@ export function formatDate(date: string) {
     return `${fullDate} (${yearsAgo}y ago)`;
   }
 }
+
+export function getImagePath(src: string): string {
+  const basePath = process.env.NODE_ENV === 'production' ? '/angusbailey-portfolio' : '';
+  return `${basePath}${src}`;
+}
