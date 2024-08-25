@@ -65,10 +65,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const basePath = process.env.NODE_ENV === 'production' ? '/angusbailey-portfolio' : '';
+  console.log('Current environment:', process.env.NODE_ENV);
+  console.log('Base path:', basePath);
+  console.log('Favicon path:', `${basePath}/favicon.ico`);
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <base href={`${basePath}/`} />
+        <link rel="icon" href={`${basePath}/favicon.ico`} type="image/x-icon" />
       </head>
       <body
         className={cn(
