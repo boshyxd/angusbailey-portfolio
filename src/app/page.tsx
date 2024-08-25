@@ -20,7 +20,7 @@ export default function Page() {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
       <NavBar />
-      <main className="flex flex-col min-h-[100dvh] space-y-8 max-w-4xl mx-auto px-4 pt-0 pb-4">
+      <main className="flex flex-col min-h-[100dvh] space-y-8 max-w-4xl mx-auto px-4 pt-0 pb-20">
         <div className="-mt-12">
           <DynamicHero />
         </div>

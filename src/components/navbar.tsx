@@ -35,8 +35,8 @@ const NavBar = () => {
   const modeToggle = ModeToggle();
 
   return (
-    <div className="fixed bottom-2 left-1/2 -translate-x-1/2 z-50">
-      <Dock className="px-2 py-1 rounded-full bg-black/30 backdrop-blur-md border border-white/10 scale-[0.65] sm:scale-90">
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
+      <Dock className="px-3 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/10 scale-75 sm:scale-100">
         {navItems.map((item) => (
           <DockIcon
             key={item.name}

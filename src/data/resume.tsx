@@ -1,5 +1,6 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
+import { getImagePath } from "@/lib/utils";
 
 export const DATA = {
   name: "Angus Bailey",
@@ -11,7 +12,7 @@ export const DATA = {
     "Computer Science student passionate about <u>full-stack development</u>, responsive web design, and building efficient, user-friendly applications.",
   summary:
     "I'm a passionate 3rd-year Computer Science student at [Carleton University](https://carleton.ca/), with a lifelong love for technology and innovation. I blend academic excellence with practical experience in software development. My journey in programming began early with Lua scripting, evolving into a comprehensive skill set encompassing [full-stack web development](#skills), cloud computing, and AI integration. My [project portfolio](#projects) demonstrates proficiency in technologies such as React, Next.js, Node.js, and Python. I'm eager to contribute my [skills](#skills) to cutting-edge projects in the tech industry.",
-  avatarUrl: "/me.png",
+  avatarUrl: getImagePath("/me.png"),
   skills: [
     "Python",
     "Java",
@@ -70,7 +71,7 @@ export const DATA = {
       school: "Carleton University",
       href: "https://carleton.ca",
       degree: "Bachelor of Computer Science (BCS)",
-      logoUrl: "/carleton.png",
+      logoUrl: getImagePath("/carleton.png"),
       start: "2022",
       end: "2027",
       description: "Awarded entrance scholarship for academic excellence. Relevant Coursework: Data Structures and Algorithms, Object-Oriented Programming, Database Management Systems, Software Engineering, Cloud Computing, Artificial Intelligence. Co-op Program: Summer 2025 semester.",
@@ -84,7 +85,7 @@ export const DATA = {
       badges: [],
       location: "Kingston, ON",
       title: "Computer Repair Technician",
-      logoUrl: "/compufix.png",
+      logoUrl: getImagePath("/compufix.png"),
       start: "September 2022",
       end: "September 2023",
       achievements: [
@@ -113,7 +114,7 @@ export const DATA = {
         "Tailwind CSS",
         "Framer Motion",
       ],
-      image: "/aestheticaxis.png",
+      image: getImagePath("/aestheticaxis.png"),
       links: [
         {
           type: "Website",
@@ -143,7 +144,7 @@ export const DATA = {
         "Matplotlib",
         "pytest",
       ],
-      image: "/discordllm.png",
+      image: getImagePath("/discordllm.png"),
       links: [
         {
           type: "Source",
@@ -166,7 +167,7 @@ export const DATA = {
         "SQLite",
         "Bleak",
       ],
-      image: "/hwidinspector.png",
+      image: getImagePath("/hwidinspector.png"),
       links: [
         {
           type: "Source",
@@ -188,7 +189,7 @@ export const DATA = {
         "Matplotlib",
         "Pandas",
       ],
-      image: "/rssicheck.png",
+      image: getImagePath("/rssicheck.png"),
       links: [
         {
           type: "Source",
