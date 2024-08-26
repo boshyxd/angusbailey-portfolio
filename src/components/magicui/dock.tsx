@@ -18,7 +18,7 @@ const DEFAULT_MAGNIFICATION = 1.3;
 const DEFAULT_DISTANCE = 45; // Increased from 40
 
 const dockVariants = cva(
-  "fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-between shadow-lg"
+  "fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-between shadow-lg h-16" // Increased height to h-16
 );
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
@@ -105,17 +105,17 @@ const DockIcon = ({
       onClick={onClick} // This is now safe, as onClick is optional
       style={{ scale }}
       className={cn(
-        "flex flex-col items-center justify-center transition-colors hover:text-blue-500 px-2 sm:px-3",
+        "flex flex-col items-center justify-center transition-colors hover:text-blue-500 px-3 sm:px-4 relative", // Increased horizontal padding
         className
       )}
       whileHover={{ y: -3 }}
       whileTap={{ scale: 0.95 }}
     >
-      <div className="h-8 flex items-end">
-        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+      <div className="flex items-center justify-center h-10">
+        <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
       </div>
       <motion.span
-        className="text-[10px] sm:text-xs opacity-0 transition-opacity text-white/90 mt-1"
+        className="text-[10px] sm:text-xs text-black dark:text-white/90 absolute top-full left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none"
         style={{ opacity: useTransform(scale, [1, 1.3], [0, 1]) }}
       >
         {label}

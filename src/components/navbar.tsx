@@ -36,7 +36,7 @@ const NavBar = () => {
 
   return (
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
-      <Dock className="px-3 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/10 scale-75 sm:scale-100">
+      <Dock className="px-4 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/10 scale-75 sm:scale-100 flex items-center">
         {navItems.map((item) => (
           <DockIcon
             key={item.name}
