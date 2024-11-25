@@ -11,6 +11,7 @@ import Markdown from "react-markdown";
 import NavBar from "@/components/navbar";
 import dynamic from 'next/dynamic';
 import { ThemeProvider } from "@/components/theme-provider";
+import { Icons } from "@/components/icons";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -135,20 +136,58 @@ function Hackathons() {
   return (
     <section id="hackathons">
       <SectionHeader title="Hackathons" delay={BLUR_FADE_DELAY * 14} />
-      <BlurFade delay={BLUR_FADE_DELAY * 15}>
-        <p className="text-muted-foreground mb-6">
-          I&apos;m excited to announce that I&apos;ll be attending my first hackathon this year! Stay tuned for updates on my experiences and projects from upcoming events.
-        </p>
-      </BlurFade>
-      <BlurFade delay={BLUR_FADE_DELAY * 16}>
-        <HackathonCard
-          title="Upcoming Hackathon"
-          description="I&apos;m looking forward to participating in my first hackathon soon. This space will be updated with details and projects from the event."
-          location="TBA"
-          dates="Coming Soon"
-          image="/placeholder-hackathon.png"
-        />
-      </BlurFade>
+      <div className="flex flex-col gap-6">
+        <BlurFade delay={BLUR_FADE_DELAY * 15}>
+          <HackathonCard
+            title="SkillBoost - HackTheHill 2"
+            description="An AI-powered learning companion that transforms interests into tailored skills with personalized, AI-generated learning paths and adaptive, context-aware lessons."
+            location="University of Ottawa"
+            dates="2024"
+            image="/skillboost-hackathon.png"
+            links={[
+              {
+                icon: <Icons.github className="size-3" />,
+                title: "Source",
+                href: "https://github.com/boshyxd/SkillBoost"
+              }
+            ]}
+            technologies={[
+              "React",
+              "Next.js",
+              "Firebase",
+              "Claude API",
+              "JavaScript",
+              "CSS"
+            ]}
+          />
+        </BlurFade>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 16}>
+          <HackathonCard
+            title="ThreatAnalyzer v2.0 - cuHacking"
+            description="A web app that uses AI to detect threats in real-time through your webcam."
+            location="Carleton University"
+            dates="2024"
+            image="/threatanalyzer-hackathon.png"
+            award="2nd Place"
+            links={[
+              {
+                icon: <Icons.github className="size-3" />,
+                title: "Source",
+                href: "https://github.com/StephenRebel/CU-Computer-Vision"
+              }
+            ]}
+            technologies={[
+              "Python",
+              "Flask",
+              "PyTorch",
+              "HTML",
+              "CSS",
+              "JavaScript"
+            ]}
+          />
+        </BlurFade>
+      </div>
     </section>
   );
 }
