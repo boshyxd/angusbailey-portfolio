@@ -6,8 +6,8 @@ import { FaUser, FaBriefcase, FaCode, FaEnvelope, FaLaptopCode, FaSun, FaMoon } 
 import { ModeToggle } from "./mode-toggle";
 import { IconType } from 'react-icons';
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 
-// Define a type for the nav items
 type NavItem = {
   name: string;
   href: string;
@@ -18,11 +18,15 @@ type NavItem = {
 const NavBar = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
-    setTheme('dark'); // Set the initial theme to dark
-  }, [setTheme]);
+  }, []);
+
+  if (!mounted || pathname === '/roblox') {
+    return null;
+  }
 
   const navItems: NavItem[] = [
     { name: "About", href: "#about", icon: FaUser },
@@ -45,15 +49,13 @@ const NavBar = () => {
             href={item.href}
           />
         ))}
-        {mounted && (
-          <DockIcon
-            key={modeToggle.name}
-            icon={theme === "dark" ? FaSun : FaMoon}
-            label={modeToggle.name}
-            href={modeToggle.href}
-            onClick={modeToggle.onClick}
-          />
-        )}
+        <DockIcon
+          key={modeToggle.name}
+          icon={theme === "dark" ? FaSun : FaMoon}
+          label={modeToggle.name}
+          href={modeToggle.href}
+          onClick={modeToggle.onClick}
+        />
       </Dock>
     </div>
   );

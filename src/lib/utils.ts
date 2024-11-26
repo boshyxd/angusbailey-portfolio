@@ -49,3 +49,16 @@ export function getImagePath(path: string): string {
   const basePath = process.env.NODE_ENV === 'production' ? '/angusbailey-portfolio' : '';
   return `${basePath}${adjustedPath}`;
 }
+
+export async function fetchPastebin(url: string) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Failed to fetch code');
+    }
+    return await response.text();
+  } catch (error) {
+    console.error('Error fetching code:', error);
+    return '-- Error loading code';
+  }
+}

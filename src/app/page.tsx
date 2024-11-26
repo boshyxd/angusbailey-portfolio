@@ -32,6 +32,18 @@ export default function Page() {
         <Projects />
         <Hackathons />
         <Contact />
+        
+        <BlurFade delay={BLUR_FADE_DELAY * 8}>
+          <div className="text-center pt-8 border-t border-border">
+            <Link 
+              href="/roblox"
+              className="text-sm text-muted-foreground hover:text-primary inline-flex items-center gap-1.5"
+            >
+              View Roblox Portfolio
+              <Icons.chevronRight className="size-3" />
+            </Link>
+          </div>
+        </BlurFade>
       </main>
     </ThemeProvider>
   );
@@ -112,21 +124,123 @@ function Projects() {
     <section id="projects">
       <SectionHeader title="Projects" delay={BLUR_FADE_DELAY * 12} />
       <div className="grid gap-6 sm:grid-cols-2">
-        {DATA.projects.map((project: Project, id) => (
-          <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 13 + id * 0.05}>
-            <ProjectCard
-              href={project.href}
-              title={project.title}
-              description={project.description}
-              dates={project.dates}
-              tags={project.technologies}
-              links={project.links}
-              githubUrl={project.links.find(link => link.type === "Source")?.href}
-              image={project.image}
-              className="group hover:border-primary/50 transition-colors"
-            />
-          </BlurFade>
-        ))}
+        <BlurFade delay={BLUR_FADE_DELAY * 13}>
+          <ProjectCard
+            href="https://github.com/boshyxd/SkillBoost"
+            title="SkillBoost"
+            description="An AI-powered learning companion that transforms interests into tailored skills with personalized, AI-generated learning paths and adaptive, context-aware lessons. Built with React, Next.js, and Claude AI."
+            dates="2024"
+            tags={[
+              "React",
+              "Next.js",
+              "Firebase",
+              "Claude API",
+              "JavaScript",
+              "CSS"
+            ]}
+            links={[
+              {
+                icon: <Icons.github className="size-3" />,
+                title: "Source",
+                href: "https://github.com/boshyxd/SkillBoost"
+              },
+              {
+                icon: <Icons.devpost className="size-3" />,
+                title: "Devpost",
+                href: "https://devpost.com/software/skillboost-d1trk7"
+              }
+            ]}
+            image="/skillboost.png"
+            className="group hover:border-primary/50 transition-colors"
+          />
+        </BlurFade>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 13.5}>
+          <ProjectCard
+            href="https://github.com/boshyxd/aesthetic-axis"
+            title="AestheticAxis"
+            description="An interactive quiz web-app designed to help users discover their unique aesthetic style. Built with Next.js, TypeScript, and various UI libraries."
+            dates="2024"
+            tags={[
+              "React",
+              "Next.js",
+              "TypeScript",
+              "Chakra UI",
+              "Tailwind CSS",
+              "Firebase"
+            ]}
+            links={[
+              {
+                icon: <Icons.github className="size-3" />,
+                title: "Source",
+                href: "https://github.com/boshyxd/aesthetic-axis"
+              },
+              {
+                icon: <Icons.globe className="size-3" />,
+                title: "Website",
+                href: "https://boshyxd.github.io/aesthetic-axis/"
+              }
+            ]}
+            image="/aestheticaxis.png"
+            className="group hover:border-primary/50 transition-colors"
+          />
+        </BlurFade>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 14}>
+          <ProjectCard
+            href="https://github.com/StephenRebel/CU-Computer-Vision"
+            title="ThreatAnalyzer v2.0"
+            description="A web app that uses AI to detect threats in real-time through your webcam. Built during cuHacking 2024, winning 2nd place overall."
+            dates="2024"
+            tags={[
+              "Python",
+              "Flask",
+              "PyTorch",
+              "HTML",
+              "CSS",
+              "JavaScript"
+            ]}
+            links={[
+              {
+                icon: <Icons.github className="size-3" />,
+                title: "Source",
+                href: "https://github.com/StephenRebel/CU-Computer-Vision"
+              },
+              {
+                icon: <Icons.devpost className="size-3" />,
+                title: "Devpost",
+                href: "https://devpost.com/software/threatanalyzer-v2-0"
+              }
+            ]}
+            image="/threatanalyzer.png"
+            className="group hover:border-primary/50 transition-colors"
+          />
+        </BlurFade>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 14.5}>
+          <ProjectCard
+            href="https://github.com/boshyxd/RSSICheck"
+            title="RSSICheck"
+            description="A Python-based tool that leverages the Bleak library to scan and classify the signal strengths (RSSI) of nearby Bluetooth devices, providing real-time analysis of connection quality."
+            dates="2024"
+            tags={[
+              "Python",
+              "Bleak",
+              "Bluetooth",
+              "RSSI",
+              "Real-time Analytics"
+            ]}
+            links={[
+              {
+                icon: <Icons.github className="size-3" />,
+                title: "Source",
+                href: "https://github.com/boshyxd/RSSICheck"
+              }
+            ]}
+            image="/rssicheck.png"
+            className="group hover:border-primary/50 transition-colors"
+          />
+        </BlurFade>
       </div>
     </section>
   );
@@ -149,6 +263,11 @@ function Hackathons() {
                 icon: <Icons.github className="size-3" />,
                 title: "Source",
                 href: "https://github.com/boshyxd/SkillBoost"
+              },
+              {
+                icon: <Icons.devpost className="size-3" />,
+                title: "Devpost",
+                href: "https://devpost.com/software/skillboost-d1trk7"
               }
             ]}
             technologies={[
@@ -175,6 +294,11 @@ function Hackathons() {
                 icon: <Icons.github className="size-3" />,
                 title: "Source",
                 href: "https://github.com/StephenRebel/CU-Computer-Vision"
+              },
+              {
+                icon: <Icons.devpost className="size-3" />,
+                title: "Devpost",
+                href: "https://devpost.com/software/threatanalyzer-v2-0"
               }
             ]}
             technologies={[

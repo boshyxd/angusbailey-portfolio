@@ -22,7 +22,7 @@ interface Props {
   video?: string;
   links?: readonly {
     icon: React.ReactNode;
-    type: string;
+    title: string;
     href: string;
   }[];
   className?: string;
@@ -42,6 +42,8 @@ export function ProjectCard({
   className,
   githubUrl,
 }: Props) {
+  const primaryLink = links?.[0]?.href || href || "#";
+
   return (
     <Card
       className={cn(
@@ -51,7 +53,7 @@ export function ProjectCard({
       )}
     >
       <Link
-        href={href || "#"}
+        href={primaryLink}
         className="block cursor-pointer group"
       >
         {video && (
@@ -119,7 +121,7 @@ export function ProjectCard({
               <Link href={link?.href} key={idx} target="_blank">
                 <Badge key={idx} className="flex gap-1 px-1.5 py-0.5 text-[10px] hover:bg-primary hover:text-primary-foreground transition-colors">
                   {link.icon}
-                  {link.type}
+                  {link.title}
                 </Badge>
               </Link>
             ))}
