@@ -36,19 +36,23 @@ export function formatDate(date: string) {
   }
 }
 
-export function getImagePath(path: string): string {
-  // Check if the path is already a full URL
-  if (path.startsWith('http://') || path.startsWith('https://')) {
+export const getImagePath = (path: string) => {
+  // Add base path for GitHub Pages deployment
+  const basePath = '/angusbailey-portfolio';
+  
+  // If path starts with http/https, return as is
+  if (path.startsWith('http')) {
     return path;
   }
   
-  // For local images, ensure the path starts with a slash
-  const adjustedPath = path.startsWith('/') ? path : `/${path}`;
+  // If path starts with slash, append to base path
+  if (path.startsWith('/')) {
+    return `${basePath}${path}`;
+  }
   
-  // Prepend the base path for production
-  const basePath = process.env.NODE_ENV === 'production' ? '/angusbailey-portfolio' : '';
-  return `${basePath}${adjustedPath}`;
-}
+  // Otherwise, append to base path with slash
+  return `${basePath}/${path}`;
+};
 
 export async function fetchPastebin(url: string) {
   try {

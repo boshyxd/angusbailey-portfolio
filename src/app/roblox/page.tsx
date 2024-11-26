@@ -11,13 +11,14 @@ import { CodeSampleCard } from "@/components/code-sample-card";
 import { npcDialogueCode } from "@/data/code-samples/npc-dialogue";
 import { chainReactionCode } from "@/data/code-samples/chain-reaction";
 import { doorServiceCode } from "@/data/code-samples/door-service";
+import { getImagePath } from "@/lib/utils";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function RobloxPage() {
   const handleReturn = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.location.href = '/';
+    window.location.href = './';
   };
 
   return (
@@ -68,7 +69,7 @@ export default function RobloxPage() {
           <Avatar className="size-32 border md:size-48">
             <AvatarImage 
               alt="boshy's Roblox Avatar" 
-              src="/robloxavatar.png"
+              src={getImagePath('/robloxavatar.png')}
               className="object-cover"
             />
             <AvatarFallback>BX</AvatarFallback>
