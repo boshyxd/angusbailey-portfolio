@@ -205,3 +205,31 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
 .shiki .line {
   @apply px-0;
 }
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-glow:hover {
+    @apply shadow-[0_0_15px_rgba(255,255,255,0.1)];
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/5;
+  }
+}
+
+/* Add smooth transitions for all interactive elements */
+a, button, .card {
+  @apply transition-all duration-300;
+}
+
+/* Enhanced focus styles */
+:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+}

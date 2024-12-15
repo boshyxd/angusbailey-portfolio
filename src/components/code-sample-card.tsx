@@ -45,11 +45,17 @@ export function CodeSampleCard({
         isExpanded ? "sm:col-span-2" : "col-span-1"
       )}
     >
-      <Card className={cn("p-4", className)}>
+      <Card 
+        className={cn(
+          "p-4",
+          !isExpanded && "hover:ring-2 hover:ring-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group",
+          className
+        )}
+      >
         <div className="flex flex-col space-y-2">
           <div className="flex justify-between items-start">
             <div>
-              <h3 className="font-medium mb-2">{title}</h3>
+              <h3 className="font-medium mb-2 group-hover:text-primary transition-colors duration-300">{title}</h3>
               <p className="text-sm text-muted-foreground">{description}</p>
             </div>
             <Button
