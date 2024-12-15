@@ -153,7 +153,7 @@ export default function RobloxPage() {
                 with <ExperienceHighlight /> of Lua expertise.
               </motion.p>
               <p className="text-muted-foreground mt-3">
-                Lead Developer of Liberty Heights NYC (560k+ visits), building scalable systems and crafting immersive player experiences.
+                Lead Developer of Liberty Heights NYC (660k+ visits), building scalable systems and crafting immersive player experiences.
               </p>
             </div>
           </div>
@@ -278,7 +278,7 @@ export default function RobloxPage() {
           >
             <ProjectCard
               title="Liberty Heights NYC"
-              description="A thriving NYC-based roleplay experience with over 560,000 visits and 100+ concurrent users. Features detailed city environments, comprehensive roleplay systems, and persistent player progression."
+              description="A thriving NYC-based roleplay experience with over 660,000 visits and 100+ concurrent users. Features detailed city environments, comprehensive roleplay systems, and persistent player progression."
               dates="2024"
               tags={["Roleplay", "City Life", "Persistent Data", "Social Systems", "Economy"]}
               image="/liberty-heights.png"
@@ -372,7 +372,7 @@ export default function RobloxPage() {
           <Card className="p-4">
             <h3 className="font-medium">Project Scale</h3>
             <p className="text-muted-foreground">
-              • Liberty Heights NYC: 560k+ visits<br />
+              • Liberty Heights NYC: 660k+ visits<br />
               • 100+ concurrent users<br />
               • Active community management
             </p>
