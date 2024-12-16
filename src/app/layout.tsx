@@ -25,7 +25,7 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: 'Angus Bailey',
+  title: 'Angus Bailey Portfolio',
   description: 'Software Developer & Computer Science Student',
   icons: {
     icon: '/favicon.ico',
