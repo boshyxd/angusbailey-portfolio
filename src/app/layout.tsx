@@ -24,6 +24,14 @@ const outfit = Outfit({
   weight: ['400', '700', '800', '900'],
 });
 
+export const metadata = {
+  title: 'Angus Bailey',
+  description: 'Software Developer & Computer Science Student',
+  icons: {
+    icon: '/favicon.ico',
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -31,6 +39,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background antialiased flex justify-center pt-16 pb-32 sm:pt-24 sm:pb-40",
