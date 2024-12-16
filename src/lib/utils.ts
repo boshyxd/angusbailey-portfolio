@@ -36,18 +36,18 @@ export function formatDate(date: string) {
   }
 }
 
-export function getImagePath(path: string): string {
-  // Check if the path is already a full URL
-  if (path.startsWith('http://') || path.startsWith('https://')) {
-    return path;
-  }
-  
-  // For local images, ensure the path starts with a slash
-  const adjustedPath = path.startsWith('/') ? path : `/${path}`;
-  
-  // Prepend the base path for production
-  const basePath = process.env.NODE_ENV === 'production' ? '/angusbailey-portfolio' : '';
-  return `${basePath}${adjustedPath}`;
+export function getBasePath() {
+  // Check if we're in development or production
+  return process.env.NODE_ENV === 'development' 
+    ? '' 
+    : '/angusbailey-portfolio';
+}
+
+export function getImagePath(path: string) {
+  const basePath = getBasePath();
+  // Remove leading slash if it exists to prevent double slashes
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${basePath}/${cleanPath}`;
 }
 
 export async function fetchPastebin(url: string) {

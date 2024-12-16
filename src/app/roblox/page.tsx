@@ -12,13 +12,15 @@ import { npcDialogueCode } from "@/data/code-samples/npc-dialogue";
 import { chainReactionCode } from "@/data/code-samples/chain-reaction";
 import { doorServiceCode } from "@/data/code-samples/door-service";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { getBasePath, getImagePath } from "@/lib/utils";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function RobloxPage() {
   const handleReturn = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.location.href = '/';
+    const basePath = getBasePath();
+    window.location.href = `${basePath}/`;
   };
 
   const cardHoverVariants = {
@@ -165,7 +167,7 @@ export default function RobloxPage() {
             <Avatar className="size-32 border md:size-48 transition-transform duration-300 hover:rotate-6">
               <AvatarImage 
                 alt="boshy's Roblox Avatar" 
-                src="/robloxavatar.png"
+                src={getImagePath('robloxavatar.png')}
                 className="object-cover"
               />
               <AvatarFallback>BX</AvatarFallback>
