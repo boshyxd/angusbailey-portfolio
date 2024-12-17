@@ -57,7 +57,7 @@ export default function RobloxPage() {
         transition={{ duration: 0.2 }}
       >
         <motion.span
-          className="font-semibold text-primary relative"
+          className="font-semibold text-primary relative bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat bg-bottom group-hover:bg-[length:100%_2px] transition-all duration-500"
           animate={{ 
             opacity: [0.8, 1, 0.8],
           }}
@@ -70,7 +70,7 @@ export default function RobloxPage() {
           12+
         </motion.span>
         <motion.span 
-          className="text-sm text-primary/70"
+          className="text-sm text-primary/70 bg-gradient-to-r from-primary/70 to-primary/70 bg-[length:0%_2px] bg-no-repeat bg-bottom group-hover:bg-[length:100%_2px] transition-all duration-500"
           animate={{ 
             opacity: [0.6, 0.8, 0.6],
           }}
@@ -82,7 +82,7 @@ export default function RobloxPage() {
         >
           years
         </motion.span>
-        <motion.div
+        <motion.span
           className="absolute -inset-1 rounded-lg bg-primary/5 -z-10 opacity-0 transition-opacity duration-300"
           initial={false}
           whileHover={{ opacity: 1 }}
@@ -144,19 +144,15 @@ export default function RobloxPage() {
               </div>
             </motion.div>
             <div className="prose dark:prose-invert">
-              <motion.p 
+              <span 
                 className="text-muted-foreground space-y-1"
-                variants={textHoverVariants}
               >
                 Third-year Computer Science student and experienced{" "}
                 <span className="text-primary font-medium bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat bg-bottom hover:bg-[length:100%_2px] transition-all duration-500">
                   Roblox Scripter
                 </span>{" "}
                 with <ExperienceHighlight /> of Lua expertise.
-              </motion.p>
-              <p className="text-muted-foreground mt-3">
-                Lead Developer of Liberty Heights NYC (660k+ visits), building scalable systems and crafting immersive player experiences.
-              </p>
+              </span>
             </div>
           </div>
           <motion.div
@@ -425,4 +421,4 @@ export default function RobloxPage() {
       </BlurFade>
     </section>
   );
-} 
+}
