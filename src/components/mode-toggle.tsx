@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import React from "react";
 import { usePathname } from "next/navigation";
 
-export const ModeToggle = () => {
+export const useModeToggle = () => {
   const { setTheme, theme } = useTheme();
   const pathname = usePathname();
   

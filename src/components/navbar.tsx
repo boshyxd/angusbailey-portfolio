@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Dock, DockIcon } from "./magicui/dock";
 import { FaUser, FaBriefcase, FaCode, FaEnvelope, FaLaptopCode, FaSun, FaMoon } from 'react-icons/fa';
-import { ModeToggle } from "./mode-toggle";
+import { useModeToggle } from "./mode-toggle";
 import { IconType } from 'react-icons';
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
@@ -16,9 +16,10 @@ type NavItem = {
 };
 
 const NavBar = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const modeToggle = useModeToggle();
 
   useEffect(() => {
     setMounted(true);
@@ -35,8 +36,6 @@ const NavBar = () => {
     { name: "Hackathons", href: "#hackathons", icon: FaLaptopCode },
     { name: "Contact", href: "#contact", icon: FaEnvelope },
   ];
-
-  const modeToggle = ModeToggle();
 
   return (
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
