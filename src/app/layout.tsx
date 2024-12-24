@@ -31,7 +31,7 @@ export const metadata = {
   },
   description: 'Software Developer & Computer Science Student',
   icons: {
-    icon: '/favicon.ico',
+    icon: './favicon.ico',
   },
 };
 
@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="./favicon.ico" sizes="any" />
       </head>
       <body
         className={cn(
