@@ -23,6 +23,7 @@ const config = {
         poppins: ["var(--font-poppins)", ...fontFamily.sans],
         "roboto-slab": ["var(--font-roboto-slab)", ...fontFamily.serif],
         title: ["var(--font-outfit)", ...fontFamily.sans],
+        bebas: ["var(--font-bebas)", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Inter, Roboto_Slab, Poppins, Outfit } from "next/font/google";
+import { Inter, Roboto_Slab, Poppins, Outfit, Bebas_Neue } from "next/font/google";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({
@@ -22,6 +22,12 @@ const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
   weight: ['400', '700', '800', '900'],
+});
+
+const bebasNeue = Bebas_Neue({
+  weight: '400',
+  subsets: ["latin"],
+  variable: "--font-bebas",
 });
 
 export const metadata = {
@@ -52,6 +58,7 @@ export default function RootLayout({
           robotoSlab.variable,
           poppins.variable,
           outfit.variable,
+          bebasNeue.variable,
           "font-sans"
         )}
       >
