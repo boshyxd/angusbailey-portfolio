@@ -3,7 +3,6 @@
 import React from 'react';
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import BlurFade from "@/components/magicui/blur-fade";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 import { getImagePath } from "@/lib/utils";
 import { MotionDiv, MotionSpan } from "@/components/motion";
@@ -77,14 +76,14 @@ export default function Hero() {
         className="relative"
       >
         <BlurFade delay={BLUR_FADE_DELAY}>
-          <div className="size-32 md:size-48 relative overflow-hidden rounded-full border">
+          <div className="size-32 md:size-48 relative overflow-hidden border" style={{ borderRadius: '3rem' }}>
             <Image
               src={getImagePath(DATA.avatarUrl)}
               alt={DATA.name}
               width={192}
               height={192}
               priority
-              className="object-cover"
+              className="object-cover transition-transform duration-300"
             />
           </div>
         </BlurFade>
