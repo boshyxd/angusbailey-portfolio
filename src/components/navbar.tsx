@@ -38,7 +38,7 @@ const NavBar = () => {
   ];
 
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
+    <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50" aria-label="Main navigation">
       <Dock className="px-4 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/10 scale-75 sm:scale-100 flex items-center">
         {navItems.map((item) => (
           <DockIcon
@@ -46,6 +46,8 @@ const NavBar = () => {
             icon={item.icon}
             label={item.name}
             href={item.href}
+            aria-label={`Navigate to ${item.name} section`}
+            className="transition-all hover:scale-110 focus:scale-110 focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
           />
         ))}
         <DockIcon
@@ -54,9 +56,11 @@ const NavBar = () => {
           label={modeToggle.name}
           href={modeToggle.href}
           onClick={modeToggle.onClick}
+          aria-label={`Switch to ${modeToggle.name} mode`}
+          className="transition-all hover:scale-110 focus:scale-110 focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
         />
       </Dock>
-    </div>
+    </nav>
   );
 };
 
