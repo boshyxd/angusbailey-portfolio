@@ -30,16 +30,16 @@ export function HackathonCard({
   technologies,
 }: Props) {
   return (
-    <div className="flex flex-col md:flex-row items-center gap-4 p-4 border rounded-lg shadow-sm">
-      <div className="w-24 h-24 flex-shrink-0">
-        <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border">
+    <div className="group flex flex-col md:flex-row items-center gap-4 p-4 border rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/50 hover:-translate-y-1">
+      <div className="w-24 h-24 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+        <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border transition-colors duration-300 group-hover:border-primary/50">
           {image ? (
             <Image
               src={getImagePath(image)}
               alt={title}
               width={100}
               height={100}
-              className="object-cover"
+              className="object-cover transition-transform duration-300 group-hover:scale-110"
               unoptimized
             />
           ) : (
@@ -56,13 +56,13 @@ export function HackathonCard({
           {award && (
             <Badge 
               variant="secondary" 
-              className="bg-gradient-to-r from-zinc-300 via-zinc-100 to-zinc-300 text-zinc-800 dark:text-zinc-900 font-medium text-[10px] px-2 py-0.5 shadow-sm border border-zinc-200/50"
+              className="bg-gradient-to-r from-zinc-300 via-zinc-100 to-zinc-300 text-zinc-800 dark:text-zinc-900 font-medium text-[10px] px-2 py-0.5 shadow-sm border border-zinc-200/50 transition-all duration-300 group-hover:shadow-md group-hover:scale-105"
             >
               🏆 {award}
             </Badge>
           )}
         </div>
-        <h2 className="text-lg font-poppins font-semibold leading-tight">{title}</h2>
+        <h2 className="text-lg font-poppins font-semibold leading-tight transition-colors duration-300 group-hover:text-primary">{title}</h2>
         <p className="text-xs text-muted-foreground font-inter">{location}</p>
         <p className="prose dark:prose-invert text-sm text-muted-foreground font-inter">
           {description}
@@ -73,7 +73,7 @@ export function HackathonCard({
               <Badge
                 key={idx}
                 variant="secondary"
-                className="text-[10px] px-1.5 py-0.5"
+                className="text-[10px] px-1.5 py-0.5 transition-all duration-300 hover:scale-105 hover:bg-primary/10 hover:text-primary"
               >
                 {tech}
               </Badge>
@@ -84,7 +84,10 @@ export function HackathonCard({
           <div className="mt-2 flex flex-row flex-wrap gap-1.5">
             {links.map((link, idx) => (
               <Link href={link.href} key={idx}>
-                <Badge variant="secondary" className="flex items-center gap-1 px-1.5 py-0.5 text-[10px]">
+                <Badge 
+                  variant="secondary" 
+                  className="flex items-center gap-1 px-1.5 py-0.5 text-[10px] transition-all duration-300 hover:scale-105 hover:bg-primary/10 hover:text-primary"
+                >
                   {link.icon}
                   <span>{link.title}</span>
                 </Badge>

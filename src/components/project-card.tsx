@@ -92,8 +92,8 @@ export function ProjectCard({
       <div className="flex flex-col flex-1">
         <CardHeader className="px-4 py-3 space-y-2">
           <CardTitle className="text-lg font-poppins font-semibold">
-            {githubUrl ? (
-              <Link href={githubUrl} className="hover:underline" target="_blank">
+            {href ? (
+              <Link href={href} className="hover:text-primary transition-colors duration-300" target="_blank">
                 {title}
               </Link>
             ) : (

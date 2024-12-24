@@ -12,7 +12,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Hero() {
   return (
-    <section id="hero" className="flex flex-col items-center justify-between gap-8 px-4 py-8 md:flex-row md:items-start md:px-0 md:py-16">
+    <section id="hero" className="flex flex-col items-center justify-between gap-8 px-4 py-4 md:flex-row md:items-start md:px-0 md:py-8">
       <div className="flex flex-col text-center md:text-left">
         <MotionDiv 
           className="flex items-center justify-center md:justify-start"
