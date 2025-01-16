@@ -146,6 +146,11 @@ function Projects() {
                 href: "https://github.com/boshyxd/SkillBoost"
               },
               {
+                icon: <Icons.globe className="size-3" />,
+                title: "Website",
+                href: "https://skill--boost.vercel.app/"
+              },
+              {
                 icon: <Icons.devpost className="size-3" />,
                 title: "Devpost",
                 href: "https://devpost.com/software/skillboost-d1trk7"
