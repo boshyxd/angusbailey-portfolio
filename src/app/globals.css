@@ -5,47 +5,47 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 11.1% 3.53%;
+    --foreground: 0 0% 0%;
     --card: 0 0% 100%;
-    --card-foreground: 210 11.1% 3.53%;
+    --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
-    --popover-foreground: 210 11.1% 3.53%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 92%;
+    --input: 0 0% 92%;
+    --ring: 0 0% 0%;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 210 11.1% 3.53%;
-    --foreground: 0 0% 98%;
-    --card: 210 11.1% 3.53%;
-    --card-foreground: 0 0% 98%;
-    --popover: 210 11.1% 3.53%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 7%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 7%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 7%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 100%;
   }
 }
 
@@ -55,6 +55,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
@@ -232,4 +233,92 @@ a, button, .card {
 /* Enhanced focus styles */
 :focus-visible {
   @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+}
+
+.project-card {
+  @apply relative overflow-hidden rounded-xl border bg-card p-6 transition-all duration-300;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.project-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dark .project-card::after {
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover::after {
+  opacity: 1;
+}
+
+.project-card img {
+  @apply rounded-lg object-cover transition-all duration-500;
+  filter: brightness(0.95);
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: auto;
+}
+
+.project-card .image-container {
+  @apply relative overflow-hidden rounded-lg;
+  aspect-ratio: 16/9;
+}
+
+.project-card:hover img {
+  transform: scale(1.03);
+  filter: brightness(1);
+}
+
+.tag {
+  @apply inline-flex items-center rounded-full px-3 py-1 text-sm font-medium transition-all duration-300;
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+.dark .tag {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tag:hover {
+  @apply bg-primary/20;
+  transform: translateY(-1px);
+}
+
+.section-header {
+  @apply relative mb-8 inline-block font-bold;
+  letter-spacing: 0.5px;
+}
+
+.section-header::after {
+  content: '';
+  @apply absolute -bottom-2 left-0 h-0.5 w-1/3 bg-primary transition-all duration-500 ease-out;
+}
+
+.section-header:hover::after {
+  @apply w-full;
+  height: 2px;
+}
+
+@keyframes subtle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.link-icon {
+  @apply transition-transform duration-300;
+}
+
+.link-icon:hover {
+  animation: subtle-bounce 1s ease-in-out infinite;
 }

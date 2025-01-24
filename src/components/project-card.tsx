@@ -54,10 +54,7 @@ export function ProjectCard({
         className
       )}
     >
-      <Link
-        href={primaryLink}
-        className="block cursor-pointer overflow-hidden"
-      >
+      <div className="relative">
         {video && (
           <div className="relative overflow-hidden h-40">
             <video
@@ -72,33 +69,35 @@ export function ProjectCard({
           </div>
         )}
         {image ? (
-          <div className="relative overflow-hidden h-40">
+          <div className="image-container">
             <Image
               src={getImagePath(image)}
               alt={title}
               width={500}
-              height={300}
-              className="w-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+              height={281}
+              className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
               unoptimized
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </div>
         ) : (
-          <div className="h-40 w-full bg-muted flex items-center justify-center">
+          <div className="image-container bg-muted flex items-center justify-center">
             <span className="text-muted-foreground">No image available</span>
           </div>
         )}
-      </Link>
+        <Link
+          href={primaryLink}
+          className="absolute inset-0 z-10"
+          target="_blank"
+          aria-label={`View ${title} project`}
+        />
+      </div>
       <div className="flex flex-col flex-1">
         <CardHeader className="px-4 py-3 space-y-2">
           <CardTitle className="text-lg font-poppins font-semibold">
-            {href ? (
-              <Link href={href} className="hover:text-primary transition-colors duration-300" target="_blank">
-                {title}
-              </Link>
-            ) : (
-              title
-            )}
+            <Link href={href || '#'} className="hover:text-primary transition-colors duration-300" target="_blank">
+              {title}
+            </Link>
           </CardTitle>
           <time className="font-inter text-sm text-muted-foreground">{dates}</time>
           <div className="hidden font-inter text-sm underline print:visible">
@@ -123,12 +122,15 @@ export function ProjectCard({
             </div>
           )}
         </div>
-        <CardFooter className="px-4 py-2">
+        <CardFooter className="px-4 py-2 relative z-20">
           {links && links.length > 0 && (
             <div className="flex flex-row flex-wrap items-start gap-2">
               {links?.map((link, idx) => (
                 <Link href={link?.href} key={idx} target="_blank">
-                  <Badge key={idx} className="flex gap-1 px-1.5 py-0.5 text-[10px] hover:bg-primary hover:text-primary-foreground transition-colors">
+                  <Badge 
+                    key={idx} 
+                    className="flex gap-1 px-1.5 py-0.5 text-[10px] hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer"
+                  >
                     {link.icon}
                     {link.title}
                   </Badge>

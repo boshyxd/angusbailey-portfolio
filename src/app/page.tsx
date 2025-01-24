@@ -122,10 +122,41 @@ function Skills() {
 
 function Projects() {
   return (
-    <section id="projects" className="space-y-6">
+    <section id="projects" className="space-y-8 py-12">
       <SectionHeader title="Projects" delay={BLUR_FADE_DELAY * 12} />
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-8 sm:grid-cols-2">
         <BlurFade delay={BLUR_FADE_DELAY * 13}>
+          <ProjectCard
+            href="https://github.com/boshyxd/SecureVision"
+            title="SecureVision"
+            description="A scalable security analysis platform that enriches threat data using distributed worker nodes, Solace event broker, and AI-powered insights. Built with FastAPI, Docker, Terraform, and groq for comprehensive security scoring and recommendations."
+            dates="2024"
+            tags={[
+              "FastAPI",
+              "Docker",
+              "Terraform",
+              "Solace",
+              "groq",
+              "Python"
+            ]}
+            links={[
+              {
+                icon: <Icons.github className="size-3 link-icon" />,
+                title: "Source",
+                href: "https://github.com/boshyxd/SecureVision"
+              },
+              {
+                icon: <Icons.devpost className="size-3 link-icon" />,
+                title: "Dorahacks",
+                href: "https://dorahacks.io/buidl/21611"
+              }
+            ]}
+            image="/securevision.png"
+            className="project-card group"
+          />
+        </BlurFade>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 13.5}>
           <ProjectCard
             href="https://github.com/boshyxd/SkillBoost"
             title="SkillBoost"
@@ -141,27 +172,27 @@ function Projects() {
             ]}
             links={[
               {
-                icon: <Icons.github className="size-3" />,
+                icon: <Icons.github className="size-3 link-icon" />,
                 title: "Source",
                 href: "https://github.com/boshyxd/SkillBoost"
               },
               {
-                icon: <Icons.globe className="size-3" />,
+                icon: <Icons.globe className="size-3 link-icon" />,
                 title: "Website",
                 href: "https://skill--boost.vercel.app/"
               },
               {
-                icon: <Icons.devpost className="size-3" />,
+                icon: <Icons.devpost className="size-3 link-icon" />,
                 title: "Devpost",
                 href: "https://devpost.com/software/skillboost-d1trk7"
               }
             ]}
             image="/skillboost.png"
-            className="group hover:border-primary/50 transition-colors"
+            className="project-card group"
           />
         </BlurFade>
 
-        <BlurFade delay={BLUR_FADE_DELAY * 13.5}>
+        <BlurFade delay={BLUR_FADE_DELAY * 14}>
           <ProjectCard
             href="https://github.com/boshyxd/aesthetic-axis"
             title="AestheticAxis"
@@ -177,49 +208,18 @@ function Projects() {
             ]}
             links={[
               {
-                icon: <Icons.github className="size-3" />,
+                icon: <Icons.github className="size-3 link-icon" />,
                 title: "Source",
                 href: "https://github.com/boshyxd/aesthetic-axis"
               },
               {
-                icon: <Icons.globe className="size-3" />,
+                icon: <Icons.globe className="size-3 link-icon" />,
                 title: "Website",
                 href: "https://boshyxd.github.io/aesthetic-axis/"
               }
             ]}
             image="/aestheticaxis.png"
-            className="group hover:border-primary/50 transition-colors"
-          />
-        </BlurFade>
-
-        <BlurFade delay={BLUR_FADE_DELAY * 14}>
-          <ProjectCard
-            href="https://github.com/StephenRebel/CU-Computer-Vision"
-            title="ThreatAnalyzer v2.0"
-            description="A web app that uses AI to detect threats in real-time through your webcam. Built during cuHacking 2024, winning 2nd place overall."
-            dates="2024"
-            tags={[
-              "Python",
-              "Flask",
-              "PyTorch",
-              "HTML",
-              "CSS",
-              "JavaScript"
-            ]}
-            links={[
-              {
-                icon: <Icons.github className="size-3" />,
-                title: "Source",
-                href: "https://github.com/StephenRebel/CU-Computer-Vision"
-              },
-              {
-                icon: <Icons.devpost className="size-3" />,
-                title: "Devpost",
-                href: "https://devpost.com/software/threatanalyzer-v2-0"
-              }
-            ]}
-            image="/threatanalyzer.png"
-            className="group hover:border-primary/50 transition-colors"
+            className="project-card group"
           />
         </BlurFade>
 
@@ -238,13 +238,13 @@ function Projects() {
             ]}
             links={[
               {
-                icon: <Icons.github className="size-3" />,
+                icon: <Icons.github className="size-3 link-icon" />,
                 title: "Source",
                 href: "https://github.com/boshyxd/RSSICheck"
               }
             ]}
             image="/rssicheck.png"
-            className="group hover:border-primary/50 transition-colors"
+            className="project-card group"
           />
         </BlurFade>
       </div>
@@ -257,6 +257,72 @@ function Hackathons() {
     <section id="hackathons" className="space-y-6">
       <SectionHeader title="Hackathons" delay={BLUR_FADE_DELAY * 14} />
       <div className="flex flex-col gap-6">
+
+      <BlurFade delay={BLUR_FADE_DELAY * 16}>
+            <HackathonCard
+              title="SecureVision - uOttaHack 7"
+              description="A Multimodal Breach Analysis Platform"
+              location="University of Ottawa"
+              dates="2025"
+              image="/uOttaHack.png"
+              award="Winner"
+              links={[
+                {
+                  icon: <Icons.github className="size-3 link-icon" />,
+                  title: "Source",
+                  href: "https://github.com/StephenRebel/CU-Computer-Vision"
+                },
+                {
+                  icon: <Icons.devpost className="size-3 link-icon" />,
+                  title: "Dorahacks",
+                  href: "https://dorahacks.io/buidl/21611"
+                }
+              ]}
+              technologies={[
+                "React",
+                "Shadcn",
+                "Python",
+                "FastAPI",
+                "Terraform",
+                "Solace PubSub+",
+                "Groq API",
+                "Docker",
+                "Shodan API"
+              ]}
+            />
+          </BlurFade>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 16}>
+            <HackathonCard
+              title="ThreatAnalyzer v2.0 - cuHacking"
+              description="A web app that uses AI to detect threats in real-time through your webcam."
+              location="Carleton University"
+              dates="2024"
+              image="/threatanalyzer-hackathon.png"
+              award="Winner"
+              links={[
+                {
+                  icon: <Icons.github className="size-3 link-icon" />,
+                  title: "Source",
+                  href: "https://github.com/StephenRebel/CU-Computer-Vision"
+                },
+                {
+                  icon: <Icons.devpost className="size-3 link-icon" />,
+                  title: "Devpost",
+                  href: "https://devpost.com/software/threatanalyzer-v2-0"
+                }
+              ]}
+              technologies={[
+                "Python",
+                "Flask",
+                "PyTorch",
+                "HTML",
+                "CSS",
+                "JavaScript"
+              ]}
+            />
+          </BlurFade>
+
         <BlurFade delay={BLUR_FADE_DELAY * 15}>
           <HackathonCard
             title="SkillBoost - HackTheHill 2"
@@ -266,12 +332,12 @@ function Hackathons() {
             image="/skillboost-hackathon.png"
             links={[
               {
-                icon: <Icons.github className="size-3" />,
+                icon: <Icons.github className="size-3 link-icon" />,
                 title: "Source",
                 href: "https://github.com/boshyxd/SkillBoost"
               },
               {
-                icon: <Icons.devpost className="size-3" />,
+                icon: <Icons.devpost className="size-3 link-icon" />,
                 title: "Devpost",
                 href: "https://devpost.com/software/skillboost-d1trk7"
               }
@@ -283,37 +349,6 @@ function Hackathons() {
               "Claude API",
               "JavaScript",
               "CSS"
-            ]}
-          />
-        </BlurFade>
-
-        <BlurFade delay={BLUR_FADE_DELAY * 16}>
-          <HackathonCard
-            title="ThreatAnalyzer v2.0 - cuHacking"
-            description="A web app that uses AI to detect threats in real-time through your webcam."
-            location="Carleton University"
-            dates="2024"
-            image="/threatanalyzer-hackathon.png"
-            award="2nd Place"
-            links={[
-              {
-                icon: <Icons.github className="size-3" />,
-                title: "Source",
-                href: "https://github.com/StephenRebel/CU-Computer-Vision"
-              },
-              {
-                icon: <Icons.devpost className="size-3" />,
-                title: "Devpost",
-                href: "https://devpost.com/software/threatanalyzer-v2-0"
-              }
-            ]}
-            technologies={[
-              "Python",
-              "Flask",
-              "PyTorch",
-              "HTML",
-              "CSS",
-              "JavaScript"
             ]}
           />
         </BlurFade>
