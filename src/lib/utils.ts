@@ -37,17 +37,15 @@ export function formatDate(date: string) {
 }
 
 export function getBasePath() {
-  // Check if we're in development or production
-  return process.env.NODE_ENV === 'development' 
-    ? '' 
-    : '/angusbailey-portfolio';
+  return process.env.GITHUB_PAGES === 'true'
+    ? '/angusbailey-portfolio'
+    : '';
 }
 
 export function getImagePath(path: string) {
   const basePath = getBasePath();
-  // Remove leading slash if it exists to prevent double slashes
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${basePath}/${cleanPath}`;
+  return basePath ? `${basePath}/${cleanPath}` : `/${cleanPath}`;
 }
 
 export async function fetchPastebin(url: string) {
