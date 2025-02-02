@@ -1,6 +1,19 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
+export interface Project {
+  title: string;
+  description: string;
+  dates: string;
+  tags: string[];
+  links: {
+    icon: React.ReactNode;
+    title: string;
+    href: string;
+  }[];
+  image: string;
+}
+
 export const DATA = {
   name: "Angus Bailey",
   initials: "AB",
