@@ -9,14 +9,15 @@ import { DATA, Project } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import NavBar from "@/components/navbar";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Icons } from "@/components/icons";
 import { cn } from "@/lib/utils";
+import { FaFigma } from "react-icons/fa";
 
 const BLUR_FADE_DELAY = 0.04;
 
-const DynamicHero = dynamic(() => import('@/components/hero'), { ssr: false });
+const DynamicHero = dynamic(() => import("@/components/hero"), { ssr: false });
 
 export default function Page() {
   return (
@@ -33,10 +34,10 @@ export default function Page() {
         <Projects />
         <Hackathons />
         <Contact />
-        
+
         <BlurFade delay={BLUR_FADE_DELAY * 8}>
           <div className="text-center pt-8 border-t border-border">
-            <Link 
+            <Link
               href="/roblox"
               className="text-sm text-muted-foreground hover:text-primary inline-flex items-center gap-1.5"
             >
@@ -68,7 +69,10 @@ function Education() {
     <section id="education" className="space-y-4">
       <SectionHeader title="Education" delay={BLUR_FADE_DELAY * 6} />
       {DATA.education.map((education, id) => (
-        <BlurFade key={education.school} delay={BLUR_FADE_DELAY * 7 + id * 0.05}>
+        <BlurFade
+          key={education.school}
+          delay={BLUR_FADE_DELAY * 7 + id * 0.05}
+        >
           <ResumeCard
             href={education.href}
             logoUrl={education.logoUrl}
@@ -127,36 +131,96 @@ function Projects() {
       <div className="grid gap-8 sm:grid-cols-2">
         <BlurFade delay={BLUR_FADE_DELAY * 13}>
           <ProjectCard
+            href="https://carletonai.github.io/cais-web/"
+            title="Carleton AI Society Website"
+            description="A website for the Carleton AI Society, built with React, Next.js, and Tailwind CSS."
+            dates="2025"
+            tags={["React", "Next.js", "Tailwind CSS", "Jest"]}
+            links={[
+              {
+                icon: <Icons.github className="size-3 link-icon" />,
+                title: "Source",
+                href: "https://github.com/carletonai/cais-web",
+              },
+              {
+                icon: <Icons.globe className="size-3 link-icon" />,
+                title: "Website",
+                href: "https://carletonai.github.io/cais-web/",
+              },
+            ]}
+            image="/cais.png"
+            className="project-card group"
+          />
+        </BlurFade>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 13.5}>
+          <ProjectCard
             href="https://github.com/boshyxd/SecureVision"
             title="SecureVision"
             description="A scalable security analysis platform that enriches threat data using distributed worker nodes, Solace event broker, and AI-powered insights. Built with FastAPI, Docker, Terraform, and groq for comprehensive security scoring and recommendations."
-            dates="2024"
+            dates="2025"
             tags={[
+              "React",
+              "Shadcn",
+              "Tailwind CSS",
+              "Python",
               "FastAPI",
               "Docker",
               "Terraform",
-              "Solace",
-              "groq",
-              "Python"
+              "Solace PubSub+",
+              "Groq API",
             ]}
             links={[
               {
                 icon: <Icons.github className="size-3 link-icon" />,
                 title: "Source",
-                href: "https://github.com/boshyxd/SecureVision"
+                href: "https://github.com/boshyxd/SecureVision",
               },
               {
                 icon: <Icons.devpost className="size-3 link-icon" />,
                 title: "Dorahacks",
-                href: "https://dorahacks.io/buidl/21611"
-              }
+                href: "https://dorahacks.io/buidl/21611",
+              },
             ]}
             image="/securevision.png"
             className="project-card group"
           />
         </BlurFade>
 
-        <BlurFade delay={BLUR_FADE_DELAY * 13.5}>
+        <BlurFade delay={BLUR_FADE_DELAY * 14}>
+          <ProjectCard
+            href="https://github.com/MxvsAtv321/ED-Patient-Flow-System/tree/main"
+            title="WaitWell"
+            description="Patients scan a QR code on their wristband to access their estimated wait time and a variety of other statistics."
+            dates="2025"
+            tags={[
+              "React",
+              "Shadcn",
+              "Tailwind CSS",
+              "Python",
+              "Flask",
+              "OpenAI API",
+              "MySQL",
+              "Sli.dev",
+            ]}
+            links={[
+              {
+                icon: <Icons.github className="size-3 link-icon" />,
+                title: "Source",
+                href: "https://github.com/MxvsAtv321/ED-Patient-Flow-System/tree/main",
+              },
+              {
+                icon: <Icons.devpost className="size-3 link-icon" />,
+                title: "Devpost",
+                href: "https://devpost.com/software/waitwell",
+              },
+            ]}
+            image="/waitwell.png"
+            className="project-card group"
+          />
+        </BlurFade>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 14.5}>
           <ProjectCard
             href="https://github.com/boshyxd/SkillBoost"
             title="SkillBoost"
@@ -168,82 +232,26 @@ function Projects() {
               "Firebase",
               "Claude API",
               "JavaScript",
-              "CSS"
+              "CSS",
             ]}
             links={[
               {
                 icon: <Icons.github className="size-3 link-icon" />,
                 title: "Source",
-                href: "https://github.com/boshyxd/SkillBoost"
+                href: "https://github.com/boshyxd/SkillBoost",
               },
               {
                 icon: <Icons.globe className="size-3 link-icon" />,
                 title: "Website",
-                href: "https://skill--boost.vercel.app/"
+                href: "https://skill--boost.vercel.app/",
               },
               {
                 icon: <Icons.devpost className="size-3 link-icon" />,
                 title: "Devpost",
-                href: "https://devpost.com/software/skillboost-d1trk7"
-              }
+                href: "https://devpost.com/software/skillboost-d1trk7",
+              },
             ]}
             image="/skillboost.png"
-            className="project-card group"
-          />
-        </BlurFade>
-
-        <BlurFade delay={BLUR_FADE_DELAY * 14}>
-          <ProjectCard
-            href="https://github.com/boshyxd/aesthetic-axis"
-            title="AestheticAxis"
-            description="An interactive quiz web-app designed to help users discover their unique aesthetic style. Built with Next.js, TypeScript, and various UI libraries."
-            dates="2024"
-            tags={[
-              "React",
-              "Next.js",
-              "TypeScript",
-              "Chakra UI",
-              "Tailwind CSS",
-              "Firebase"
-            ]}
-            links={[
-              {
-                icon: <Icons.github className="size-3 link-icon" />,
-                title: "Source",
-                href: "https://github.com/boshyxd/aesthetic-axis"
-              },
-              {
-                icon: <Icons.globe className="size-3 link-icon" />,
-                title: "Website",
-                href: "https://boshyxd.github.io/aesthetic-axis/"
-              }
-            ]}
-            image="/aestheticaxis.png"
-            className="project-card group"
-          />
-        </BlurFade>
-
-        <BlurFade delay={BLUR_FADE_DELAY * 14.5}>
-          <ProjectCard
-            href="https://github.com/boshyxd/RSSICheck"
-            title="RSSICheck"
-            description="A Python-based tool that leverages the Bleak library to scan and classify the signal strengths (RSSI) of nearby Bluetooth devices, providing real-time analysis of connection quality."
-            dates="2024"
-            tags={[
-              "Python",
-              "Bleak",
-              "Bluetooth",
-              "RSSI",
-              "Real-time Analytics"
-            ]}
-            links={[
-              {
-                icon: <Icons.github className="size-3 link-icon" />,
-                title: "Source",
-                href: "https://github.com/boshyxd/RSSICheck"
-              }
-            ]}
-            image="/rssicheck.png"
             className="project-card group"
           />
         </BlurFade>
@@ -257,71 +265,108 @@ function Hackathons() {
     <section id="hackathons" className="space-y-6">
       <SectionHeader title="Hackathons" delay={BLUR_FADE_DELAY * 14} />
       <div className="flex flex-col gap-6">
-
-      <BlurFade delay={BLUR_FADE_DELAY * 16}>
-            <HackathonCard
-              title="SecureVision - uOttaHack 7"
-              description="A Multimodal Breach Analysis Platform"
-              location="University of Ottawa"
-              dates="2025"
-              image="/uOttaHack.png"
-              award="Winner"
-              links={[
-                {
-                  icon: <Icons.github className="size-3 link-icon" />,
-                  title: "Source",
-                  href: "https://github.com/StephenRebel/CU-Computer-Vision"
-                },
-                {
-                  icon: <Icons.devpost className="size-3 link-icon" />,
-                  title: "Dorahacks",
-                  href: "https://dorahacks.io/buidl/21611"
-                }
-              ]}
-              technologies={[
-                "React",
-                "Shadcn",
-                "Python",
-                "FastAPI",
-                "Terraform",
-                "Solace PubSub+",
-                "Groq API",
-                "Docker",
-                "Shodan API"
-              ]}
-            />
-          </BlurFade>
+        <BlurFade delay={BLUR_FADE_DELAY * 16}>
+          <HackathonCard
+            title="WaitWell - McHacks 12"
+            description="Patients scan a QR code on their wristband to access their estimated wait time and a variety of other statistics."
+            location="McGill University"
+            dates="2025"
+            image="/mchacks.png"
+            links={[
+              {
+                icon: <Icons.github className="size-3 link-icon" />,
+                title: "Source",
+                href: "https://github.com/MxvsAtv321/ED-Patient-Flow-System/tree/main",
+              },
+              {
+                icon: <Icons.devpost className="size-3 link-icon" />,
+                title: "Devpost",
+                href: "https://devpost.com/software/waitwell",
+              },
+              {
+                icon: <FaFigma className="size-3 link-icon" />,
+                title: "Figma",
+                href: "https://www.figma.com/design/rgkiZXwYWrRom2Jx40xZV7/WaitWell-UI%2FUX?node-id=0-1&t=G7Ato37ZnUvauHEP-1",
+              },
+            ]}
+            technologies={[
+              "React",
+              "Shadcn",
+              "Tailwind CSS",
+              "Python",
+              "Flask",
+              "OpenAI API",
+              "MySQL",
+              "Sli.dev",
+            ]}
+          />
+        </BlurFade>
 
         <BlurFade delay={BLUR_FADE_DELAY * 16}>
-            <HackathonCard
-              title="ThreatAnalyzer v2.0 - cuHacking"
-              description="A web app that uses AI to detect threats in real-time through your webcam."
-              location="Carleton University"
-              dates="2024"
-              image="/threatanalyzer-hackathon.png"
-              award="Winner"
-              links={[
-                {
-                  icon: <Icons.github className="size-3 link-icon" />,
-                  title: "Source",
-                  href: "https://github.com/StephenRebel/CU-Computer-Vision"
-                },
-                {
-                  icon: <Icons.devpost className="size-3 link-icon" />,
-                  title: "Devpost",
-                  href: "https://devpost.com/software/threatanalyzer-v2-0"
-                }
-              ]}
-              technologies={[
-                "Python",
-                "Flask",
-                "PyTorch",
-                "HTML",
-                "CSS",
-                "JavaScript"
-              ]}
-            />
-          </BlurFade>
+          <HackathonCard
+            title="SecureVision - uOttaHack 7"
+            description="A Multimodal Breach Analysis Platform"
+            location="University of Ottawa"
+            dates="2025"
+            image="/uOttaHack.png"
+            award="Winner"
+            links={[
+              {
+                icon: <Icons.github className="size-3 link-icon" />,
+                title: "Source",
+                href: "https://github.com/StephenRebel/CU-Computer-Vision",
+              },
+              {
+                icon: <Icons.devpost className="size-3 link-icon" />,
+                title: "Dorahacks",
+                href: "https://dorahacks.io/buidl/21611",
+              },
+            ]}
+            technologies={[
+              "React",
+              "Shadcn",
+              "Tailwind CSS",
+              "Python",
+              "FastAPI",
+              "Terraform",
+              "Solace PubSub+",
+              "Groq API",
+              "Docker",
+              "Shodan API",
+            ]}
+          />
+        </BlurFade>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 16}>
+          <HackathonCard
+            title="ThreatAnalyzer v2.0 - cuHacking"
+            description="A web app that uses AI to detect threats in real-time through your webcam."
+            location="Carleton University"
+            dates="2024"
+            image="/threatanalyzer-hackathon.png"
+            award="Winner"
+            links={[
+              {
+                icon: <Icons.github className="size-3 link-icon" />,
+                title: "Source",
+                href: "https://github.com/StephenRebel/CU-Computer-Vision",
+              },
+              {
+                icon: <Icons.devpost className="size-3 link-icon" />,
+                title: "Devpost",
+                href: "https://devpost.com/software/threatanalyzer-v2-0",
+              },
+            ]}
+            technologies={[
+              "Python",
+              "Flask",
+              "PyTorch",
+              "HTML",
+              "CSS",
+              "JavaScript",
+            ]}
+          />
+        </BlurFade>
 
         <BlurFade delay={BLUR_FADE_DELAY * 15}>
           <HackathonCard
@@ -334,13 +379,13 @@ function Hackathons() {
               {
                 icon: <Icons.github className="size-3 link-icon" />,
                 title: "Source",
-                href: "https://github.com/boshyxd/SkillBoost"
+                href: "https://github.com/boshyxd/SkillBoost",
               },
               {
                 icon: <Icons.devpost className="size-3 link-icon" />,
                 title: "Devpost",
-                href: "https://devpost.com/software/skillboost-d1trk7"
-              }
+                href: "https://devpost.com/software/skillboost-d1trk7",
+              },
             ]}
             technologies={[
               "React",
@@ -348,7 +393,7 @@ function Hackathons() {
               "Firebase",
               "Claude API",
               "JavaScript",
-              "CSS"
+              "CSS",
             ]}
           />
         </BlurFade>
@@ -364,14 +409,22 @@ function Contact() {
       <BlurFade delay={BLUR_FADE_DELAY * 18}>
         <p className="text-muted-foreground mb-4">
           Want to chat? Feel free to{" "}
-          <Link href={`mailto:${DATA.contact.email}`} className="text-primary hover:underline">
+          <Link
+            href={`mailto:${DATA.contact.email}`}
+            className="text-primary hover:underline"
+          >
             send me an email
           </Link>{" "}
-          and I&apos;ll respond as soon as I can. Please note that I&apos;ll ignore all soliciting.
+          and I&apos;ll respond as soon as I can. Please note that I&apos;ll
+          ignore all soliciting.
         </p>
         <div className="flex justify-center space-x-4">
           {Object.entries(DATA.contact.social).map(([name, social]) => (
-            <Link key={name} href={social.url} className="text-muted-foreground hover:text-primary">
+            <Link
+              key={name}
+              href={social.url}
+              className="text-muted-foreground hover:text-primary"
+            >
               <social.icon className="size-6" />
             </Link>
           ))}
@@ -381,7 +434,15 @@ function Contact() {
   );
 }
 
-function SectionHeader({ title, delay, className }: { title: string; delay: number; className?: string }) {
+function SectionHeader({
+  title,
+  delay,
+  className,
+}: {
+  title: string;
+  delay: number;
+  className?: string;
+}) {
   return (
     <BlurFade delay={delay}>
       <h2 className={cn("text-2xl font-bold", className)}>{title}</h2>
