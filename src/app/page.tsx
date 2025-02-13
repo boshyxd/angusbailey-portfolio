@@ -265,7 +265,38 @@ function Hackathons() {
     <section id="hackathons" className="space-y-6">
       <SectionHeader title="Hackathons" delay={BLUR_FADE_DELAY * 14} />
       <div className="flex flex-col gap-6">
-        <BlurFade delay={BLUR_FADE_DELAY * 16}>
+      <BlurFade delay={BLUR_FADE_DELAY * 16}>
+          <HackathonCard
+            title="SCANANA - Battle Royale XVI"
+            description="A LIDAR-based scanning game where your scanner has a peculiar malfunction - it's allergic to bananas! Created for the Battle Royale Game Jam Ottawa with the theme 'Malfunction'."
+            location="Ottawa"
+            dates="2024"
+            image="battle-royale.png"
+            award="Winner"
+            links={[
+              {
+                icon: <Icons.github className="size-3 link-icon" />,
+                title: "Source",
+                href: "https://github.com/boshyxd/SCANANA",
+              },
+              {
+                icon: <Icons.globe className="size-3 link-icon" />,
+                title: "itch.io",
+                href: "https://boshyxd.itch.io/scanana",
+              },
+            ]}
+            technologies={[
+              "Godot Engine",
+              "GDScript",
+              "LIDAR",
+              "Shaders",
+              "3D Graphics",
+              "Game Development"
+            ]}
+          />
+        </BlurFade>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 18}>
           <HackathonCard
             title="WaitWell - McHacks 12"
             description="Patients scan a QR code on their wristband to access their estimated wait time and a variety of other statistics."
@@ -302,7 +333,7 @@ function Hackathons() {
           />
         </BlurFade>
 
-        <BlurFade delay={BLUR_FADE_DELAY * 16}>
+        <BlurFade delay={BLUR_FADE_DELAY * 20}>
           <HackathonCard
             title="SecureVision - uOttaHack 7"
             description="A Multimodal Breach Analysis Platform"
@@ -337,7 +368,7 @@ function Hackathons() {
           />
         </BlurFade>
 
-        <BlurFade delay={BLUR_FADE_DELAY * 16}>
+        <BlurFade delay={BLUR_FADE_DELAY * 22}>
           <HackathonCard
             title="ThreatAnalyzer v2.0 - cuHacking"
             description="A web app that uses AI to detect threats in real-time through your webcam."
@@ -368,7 +399,7 @@ function Hackathons() {
           />
         </BlurFade>
 
-        <BlurFade delay={BLUR_FADE_DELAY * 15}>
+        <BlurFade delay={BLUR_FADE_DELAY * 24}>
           <HackathonCard
             title="SkillBoost - HackTheHill 2"
             description="An AI-powered learning companion that transforms interests into tailored skills with personalized, AI-generated learning paths and adaptive, context-aware lessons."
