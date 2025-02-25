@@ -1,9 +1,17 @@
 "use client";
 
 import { AnimatePresence, motion, useInView, Variants } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
-type MarginType = string | number | { top?: number | string; right?: number | string; bottom?: number | string; left?: number | string; };
+type MarginType =
+  | string
+  | number
+  | {
+      top?: number | string;
+      right?: number | string;
+      bottom?: number | string;
+      left?: number | string;
+    };
 
 interface BlurFadeProps {
   children: React.ReactNode;
@@ -31,13 +39,28 @@ const BlurFade = ({
   blur = "6px",
 }: BlurFadeProps) => {
   const ref = useRef(null);
-  const inViewResult = useInView(ref, { once: true, margin: inViewMargin as any });
+  const inViewResult = useInView(ref, {
+    once: true,
+    margin: inViewMargin as any,
+  });
   const isInView = !inView || inViewResult;
   const defaultVariants: Variants = {
     hidden: { y: yOffset, opacity: 0, filter: `blur(${blur})` },
     visible: { y: -yOffset, opacity: 1, filter: `blur(0px)` },
   };
   const combinedVariants = variant || defaultVariants;
+
+  // SSR safety check
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return <div className={className || ""}>{children}</div>;
+  }
+
   return (
     <AnimatePresence>
       <motion.div
@@ -51,7 +74,7 @@ const BlurFade = ({
           duration,
           ease: "easeOut",
         }}
-        className={className}
+        className={`overflow-visible ${className}`}
       >
         {children}
       </motion.div>

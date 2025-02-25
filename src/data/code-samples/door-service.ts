@@ -33,7 +33,6 @@ function DoorService.Client:InteractWithDoor(player, doorName)
             return reject("Door is locked")
         end
         
-        -- Toggle door state
         door.isOpen = not door.isOpen
         self.Server:AnimateDoor(door)
         resolve(door.isOpen)

@@ -114,7 +114,7 @@ export const DATA = {
       href: "https://compufixkingston.com/",
       badges: [],
       location: "Kingston, ON",
-      title: "Computer Repair Technician",
+      title: "Software Developer",
       logoUrl: "/compufix.png",
       start: "September 2022",
       end: "September 2023",

@@ -6,9 +6,9 @@ import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Maximize2, Minimize2, X } from "lucide-react";
 import { motion } from "framer-motion";
-import Prism from 'prismjs';
-import 'prismjs/components/prism-lua';
-import 'prismjs/themes/prism-tomorrow.css';
+import Prism from "prismjs";
+import "prismjs/components/prism-lua";
+import "prismjs/themes/prism-tomorrow.css";
 
 interface CodeSampleCardProps {
   title: string;
@@ -31,31 +31,35 @@ export function CodeSampleCard({
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsExpanded(false);
+      if (e.key === "Escape") setIsExpanded(false);
     };
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
   return (
     <motion.div
       layout
       className={cn(
-        "w-full transition-all duration-300",
-        isExpanded ? "sm:col-span-2" : "col-span-1"
+        "w-full transition-all duration-300 overflow-visible relative",
+        isExpanded ? "sm:col-span-2 z-30" : "col-span-1"
       )}
+      whileHover={{ zIndex: 20 }}
     >
-      <Card 
+      <Card
         className={cn(
-          "p-4",
-          !isExpanded && "hover:ring-2 hover:ring-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group",
+          "p-4 overflow-visible",
+          !isExpanded &&
+            "hover:ring-2 hover:ring-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group",
           className
         )}
       >
         <div className="flex flex-col space-y-2">
           <div className="flex justify-between items-start">
             <div>
-              <h3 className="font-medium mb-2 group-hover:text-primary transition-colors duration-300">{title}</h3>
+              <h3 className="font-medium mb-2 group-hover:text-primary transition-colors duration-300">
+                {title}
+              </h3>
               <p className="text-sm text-muted-foreground">{description}</p>
             </div>
             <Button
@@ -107,4 +111,4 @@ export function CodeSampleCard({
       </Card>
     </motion.div>
   );
-} 
+}

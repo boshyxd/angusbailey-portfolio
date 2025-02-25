@@ -21,7 +21,6 @@ function NPCDialogue:Start(player, startNode)
 end
 
 function NPCDialogue:ShowDialogue(player)
-    -- Create and show UI
     self.ui = self:CreateDialogueUI()
     self:UpdateDialogueContent()
     self:AnimateUI()
