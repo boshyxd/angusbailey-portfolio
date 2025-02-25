@@ -359,9 +359,8 @@ export default function RobloxPage() {
           </h2>
         </div>
         {isClient && (
-          <div className="grid gap-6 sm:grid-cols-3 overflow-visible p-2">
+          <div className="space-y-6 overflow-visible p-2">
             <motion.div
-              whileHover={{ scale: 1.02, zIndex: 10 }}
               className="group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -370,112 +369,96 @@ export default function RobloxPage() {
               <Card className="p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group-hover:ring-1 group-hover:ring-primary/50 border-primary/10 bg-gradient-to-br from-background/80 to-background relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute top-0 right-0 size-20 bg-primary/5 rounded-full blur-xl opacity-30" />
-                <h3 className="font-medium mb-3 flex items-center gap-2">
-                  <Icons.code className="size-5 text-primary" />
-                  Code Quality
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "SonarLint",
-                    "Selene",
-                    "Luau Typechecking",
-                    "Roblox-TS Strict",
-                    "Unit Testing",
-                    "Format-on-Save",
-                  ].map((tech) => (
-                    <motion.div
-                      key={tech}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Badge
-                        className="bg-accent hover:bg-accent/80 text-accent-foreground border-accent-foreground/20 hover:border-accent-foreground/30 transition-all duration-300 cursor-default shadow-sm hover:shadow"
-                        variant="secondary"
-                      >
-                        {tech}
-                      </Badge>
-                    </motion.div>
-                  ))}
-                </div>
-              </Card>
-            </motion.div>
+                <div className="flex flex-col md:flex-row gap-6">
+                  <div className="md:w-1/3">
+                    <h3 className="font-medium mb-3 flex items-center gap-2">
+                      <Icons.code className="size-5 text-primary" />
+                      Code Quality
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        "SonarLint",
+                        "Selene",
+                        "Luau Typechecking",
+                        "Roblox-TS Strict",
+                        "Unit Testing",
+                        "Format-on-Save",
+                      ].map((tech) => (
+                        <motion.div
+                          key={tech}
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Badge
+                            className="bg-accent hover:bg-accent/80 text-accent-foreground border-accent-foreground/20 hover:border-accent-foreground/30 transition-all duration-300 cursor-default shadow-sm hover:shadow"
+                            variant="secondary"
+                          >
+                            {tech}
+                          </Badge>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
 
-            <motion.div
-              whileHover={{ scale: 1.02, zIndex: 10 }}
-              className="group"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <Card className="p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group-hover:ring-1 group-hover:ring-primary/50 border-primary/10 bg-gradient-to-br from-background/80 to-background relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-0 right-0 size-20 bg-primary/5 rounded-full blur-xl opacity-30" />
-                <h3 className="font-medium mb-3 flex items-center gap-2">
-                  <Icons.git className="size-5 text-primary" />
-                  Version Control
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Git Flow",
-                    "Conventional Commits",
-                    "PR Reviews",
-                    "Rojo",
-                    "GitHub Actions",
-                    "Wally Pkg Manager",
-                  ].map((tech) => (
-                    <motion.div
-                      key={tech}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Badge
-                        className="bg-accent hover:bg-accent/80 text-accent-foreground border-accent-foreground/20 hover:border-accent-foreground/30 transition-all duration-300 cursor-default shadow-sm hover:shadow"
-                        variant="secondary"
-                      >
-                        {tech}
-                      </Badge>
-                    </motion.div>
-                  ))}
-                </div>
-              </Card>
-            </motion.div>
+                  <div className="md:w-1/3">
+                    <h3 className="font-medium mb-3 flex items-center gap-2">
+                      <Icons.git className="size-5 text-primary" />
+                      Version Control
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        "Git Flow",
+                        "Conventional Commits",
+                        "PR Reviews",
+                        "Rojo",
+                        "GitHub Actions",
+                        "Wally Pkg Manager",
+                      ].map((tech) => (
+                        <motion.div
+                          key={tech}
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Badge
+                            className="bg-accent hover:bg-accent/80 text-accent-foreground border-accent-foreground/20 hover:border-accent-foreground/30 transition-all duration-300 cursor-default shadow-sm hover:shadow"
+                            variant="secondary"
+                          >
+                            {tech}
+                          </Badge>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
 
-            <motion.div
-              whileHover={{ scale: 1.02, zIndex: 10 }}
-              className="group"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Card className="p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group-hover:ring-1 group-hover:ring-primary/50 border-primary/10 bg-gradient-to-br from-background/80 to-background relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-0 right-0 size-20 bg-primary/5 rounded-full blur-xl opacity-30" />
-                <h3 className="font-medium mb-3 flex items-center gap-2">
-                  <Icons.gauge className="size-5 text-primary" />
-                  Performance
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "FPS Optimization",
-                    "Memory Profiling",
-                    "Network Analysis",
-                    "LOD Implementation",
-                    "Parallel Lua",
-                    "Task Scheduling",
-                  ].map((tech) => (
-                    <motion.div
-                      key={tech}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Badge
-                        className="bg-accent hover:bg-accent/80 text-accent-foreground border-accent-foreground/20 hover:border-accent-foreground/30 transition-all duration-300 cursor-default shadow-sm hover:shadow"
-                        variant="secondary"
-                      >
-                        {tech}
-                      </Badge>
-                    </motion.div>
-                  ))}
+                  <div className="md:w-1/3">
+                    <h3 className="font-medium mb-3 flex items-center gap-2">
+                      <Icons.gauge className="size-5 text-primary" />
+                      Performance
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        "FPS Optimization",
+                        "Memory Profiling",
+                        "Network Analysis",
+                        "LOD Implementation",
+                        "Parallel Lua",
+                        "Task Scheduling",
+                      ].map((tech) => (
+                        <motion.div
+                          key={tech}
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Badge
+                            className="bg-accent hover:bg-accent/80 text-accent-foreground border-accent-foreground/20 hover:border-accent-foreground/30 transition-all duration-300 cursor-default shadow-sm hover:shadow"
+                            variant="secondary"
+                          >
+                            {tech}
+                          </Badge>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </Card>
             </motion.div>
